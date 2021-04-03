@@ -127,7 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div id="body" >
 
         <div class = title > Calculator</div>
-        <form action="https://polar-retreat-70471.herokuapp.com/cloud/index.php/Welcome/calculateSolution" method="post">
+        <form action="https://polar-retreat-70471.herokuapp.com/index.php/Welcome/calculateSolution" method="post">
 
             <table border="1">
                 <tr>
