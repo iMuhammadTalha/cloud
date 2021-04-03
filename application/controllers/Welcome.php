@@ -26,11 +26,24 @@ class Welcome extends CI_Controller {
 
 	public function calculateSolution(){
         $this->load->library('form_validation');
+        $this->load->helper('file');
 
-
-            $result=$this->input->post('result');
-
+        $result=$this->input->post('result');
         $solution = eval('return '.$result.';');
+
+        $date = date('d-m-y h:i:s');
+
+        $ipAddress = $this->input->ip_address();
+        $logData = 'IP Address'.$ipAddress.', Date Time= '.$date.' , Input= '.$result.' , Output= '.$solution."\n";
+        if ( ! write_file('./log.txt', $logData, 'a'))
+        {
+//            log_message('debug',print_r('no'), TRUE);
+        }
+        else
+        {
+//           log_message('debug',print_r($date), TRUE);
+        }
+
 //        log_message('debug',print_r($solution), TRUE);
             $data['solution'] = $solution;
             $this->load->view('welcome_message',$data);
